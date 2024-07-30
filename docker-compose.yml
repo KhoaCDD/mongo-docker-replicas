@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  mongo:
+    image: mongo:6
+    restart: always
+    ports:
+      - 27017:27017
+    entrypoint: [ "./scripts/setup.sh" ]
+    volumes:
+      - ./mongo/data/db:/data/db
+      - ./keys:/keys
+      - ./scripts:/scripts
+      - ./etc/mongod.conf:/etc/mongod.conf
+      - ./certs:/etc/certs
+    env_file:
+      - mongo.env
+  
+networks:
+  sorademic-dev:
+  

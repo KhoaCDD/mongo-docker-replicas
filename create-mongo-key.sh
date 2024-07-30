@@ -1,0 +1,1 @@
+mkdir keys && touch keys/mongoKeyFile.key && openssl rand -base64 756 > keys/mongoKeyFile.key && chmod 400 keys/mongoKeyFile.key
